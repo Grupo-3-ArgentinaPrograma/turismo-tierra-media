@@ -119,19 +119,4 @@ public class AdministradorDeArchivos {
 		}
 		return promociones;
 	}
-	
-	public static void main(String[] args) {
-		List<Atraccion> atracciones = AdministradorDeArchivos.leerAtracciones();
-		List<Promo> promociones = AdministradorDeArchivos.leerPromociones();
-		List<Producto> productos = new LinkedList<Producto>(promociones);//lista de promos
-			
-		 productos.addAll(atracciones);//lista de promos + lista de atracciones
-		 
-		 for (Producto producto : productos) {
-			 if( producto instanceof Promo )
-				 System.out.println( ((Promo) producto).precio(atracciones));
-				 else System.out.println("no es promo");
-			
-		 }
-	}
 }
