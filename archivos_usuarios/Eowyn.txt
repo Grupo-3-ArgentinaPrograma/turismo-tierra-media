@@ -1,0 +1,3 @@
+Nombre : Eowyn, Atraccion Preferida : AVENTURA, Monedas Disponibles : 0, Tiempo Disponible : 0.5
+Compras Realizadas : [Promo ( Pack: AxB Tipo de Promo : PAISAJE, Atracciones incluidas : [Minas Tirith, Abismo de Helm, Erebor], Precio : 10, Tiempo total : 7.5)]
+Gasto Total : 10, Horas a Consumir : 7.5

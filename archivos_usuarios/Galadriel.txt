@@ -1,0 +1,3 @@
+Nombre : Galadriel, Atraccion Preferida : PAISAJE, Monedas Disponibles : 103, Tiempo Disponible : 0.5
+Compras Realizadas : [Atraccion ( Erebor, Precio : 12, Duracion : 3.0, Cupos Restantes: 29, Tipo : PAISAJE) , Atraccion ( Minas Tirith, Precio : 5, Duracion : 2.5, Cupos Restantes: 23, Tipo : PAISAJE) ]
+Gasto Total : 17, Horas a Consumir : 5.5

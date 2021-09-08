@@ -1,0 +1,3 @@
+Nombre : Sam, Atraccion Preferida : DEGUSTACION, Monedas Disponibles : 6, Tiempo Disponible : 0.5
+Compras Realizadas : [Promo ( Pack: Absoluta Tipo de Promo : DEGUSTACION, Atracciones incluidas : [Lothlorien, La Comarca], Precio : 30, Tiempo total : 7.5)]
+Gasto Total : 30, Horas a Consumir : 7.5
