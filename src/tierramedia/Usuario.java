@@ -45,6 +45,16 @@ public class Usuario {
 	public Integer getGasto() {
 		return gasto;
 	}
+	
+	
+
+	public List<Producto> getCompras() {
+		return compras;
+	}
+	
+	public Boolean puedeComprar(Producto producto) {
+		return (this.getMonedas() >= producto.getPrecio()) && (this.getTiempoDisponible() >= producto.getTiempo());
+	}
 
 	public Boolean tieneTiempo() {
 		return tiempoDisponible > 0;
