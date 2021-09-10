@@ -37,6 +37,24 @@ public abstract class Promo extends Producto{
 		return true;
 	}
 	
+	public void establecerHsPromo(Promo promo,List<Atraccion> atracciones) {
+		Double sumaTiempos = 0d;
+		 for(String nombre_atraccion : promo.getNombres_atracciones()) {
+			 //filtro 
+			 for (Atraccion atraccion : atracciones) {
+				 if (atraccion.getNombre().equals(nombre_atraccion)) {
+				 	sumaTiempos += atraccion.getTiempo();
+				 	break;
+				 }
+			 }
+		 }
+		 promo.setTiempo(sumaTiempos);
+	}
+	
+	public void establecerPrecioPromo(Promo promo,List<Atraccion> atracciones) {
+		promo.setPrecio(promo.precio(atracciones));
+	}
+	
 	public String[] getNombres_atracciones() {
 		return nombres_atracciones;
 	}
