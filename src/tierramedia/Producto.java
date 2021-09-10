@@ -1,5 +1,7 @@
 package tierramedia;
 
+import java.util.List;
+
 public abstract class Producto{
 	protected TipoAtraccion tipo;
 	protected String nombre;
@@ -36,4 +38,43 @@ public abstract class Producto{
 	public void setTiempo(Double tiempo) {
 		this.tiempo = tiempo;
 	}	
+	
+	public Boolean contieneAtraccion(List<Producto> compras) {
+		if (this instanceof Promo) {
+			for (Producto compra : compras) {
+				if (compra instanceof Promo) {
+					for (String nombreP : ((Promo) this).getNombres_atracciones()) {
+						for (String nombreC : ((Promo) compra).getNombres_atracciones()) {
+							if ( nombreP.equals(nombreC) ) {
+								return true;	
+							}
+						}
+						
+					}					
+				} else {
+					for (String nombreP : ((Promo) this).getNombres_atracciones()) {
+						if ( nombreP.equals(((Atraccion) compras).getNombre()) ) {
+							return true;	
+						}
+					}
+				}
+			}
+		} else {
+			for (Producto compra : compras) {
+				if (compra instanceof Promo) {
+					for (String nombreC : ((Promo) compra).getNombres_atracciones()) {
+						if ( nombreC.equals( ((Atraccion) this).getNombre() ) ) {
+							return true;	
+						}
+					}					
+				} else {
+					if ( ((Atraccion) compra).getNombre().equals( ((Atraccion) this).getNombre() ) ) {
+							return true;	
+						}
+					
+				}
+			}
+		}
+		return false; //no contiene la atraccion
+	}
 }
