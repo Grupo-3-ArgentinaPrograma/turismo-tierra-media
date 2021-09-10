@@ -3,7 +3,7 @@ package tierramedia;
 public class Atraccion extends Producto{
 	private Integer cupo;
 	
-	public Atraccion(String nombre, Integer costo, Double duracion, int cupo, TipoAtraccion tipo) {
+	public Atraccion(String nombre, Integer costo, Double duracion, Integer cupo, TipoAtraccion tipo) {
 		super(tipo,nombre,costo,duracion);
 		this.cupo = cupo;
 	}
