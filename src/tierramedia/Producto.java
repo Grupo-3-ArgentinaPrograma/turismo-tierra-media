@@ -1,6 +1,5 @@
 package tierramedia;
 
-import java.util.Arrays;
 import java.util.List;
 
 public abstract class Producto{
@@ -54,7 +53,6 @@ public abstract class Producto{
 					}					
 				} else {
 					for (String nombreP : ((Promo) this).getNombres_atracciones()) {
-						System.out.println( Arrays.toString(((Promo) this).getNombres_atracciones()));
 						if ( nombreP.equals(((Atraccion) compra).getNombre()) ) {
 							return true;	
 						}
