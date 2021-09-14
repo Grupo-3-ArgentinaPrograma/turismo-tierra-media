@@ -53,7 +53,7 @@ public class Usuario {
 	}
 	
 	public Boolean puedeComprar(Producto producto) {
-		return (this.getMonedas() >= producto.getPrecio()) && (this.getTiempoDisponible() >= producto.getTiempo());
+		return ((this.getMonedas() >= producto.getPrecio()) && (this.getTiempoDisponible() >= producto.getTiempo())) && (!producto.contieneAtraccion(compras));
 	}
 
 	public Boolean tieneTiempo() {
