@@ -53,7 +53,7 @@ public class Sistema {
 				 if ( usuario.tieneMonedas() && usuario.tieneTiempo() && 
 				     ((producto instanceof Promo)? ((Promo)producto).hayCupo(atracciones, ((Promo)producto).getNombres_atracciones()) : ((Atraccion) producto).hayCupo())) {
 					 //si las monedas y el tiempo que tiene el user alcanza para comprar y que el user no haya comprado el prod anteriormente
-					 if ( usuario.puedeComprar(producto) && (!producto.contieneAtraccion(usuario.getCompras()))) {
+					 if ( usuario.puedeComprar(producto) ) {
 						 System.out.println( (producto instanceof Promo) ? usuario.getNombre() + " Desea comprar el Pack " + producto.getTipo() + (((Promo) producto).nombresAtracciones()) + " de promo " + producto.getNombre() + "?": 
 							 											   usuario.getNombre() + " Desea comprar la atraccion " + producto.getNombre() + " de tipo " + producto.getTipo() + "?");
 						 System.out.println("1 - SI              2 - NO");
