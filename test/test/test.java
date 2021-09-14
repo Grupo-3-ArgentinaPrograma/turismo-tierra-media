@@ -13,6 +13,8 @@ import tierramedia.Atraccion;
 import tierramedia.ComparadorDeProductos;
 import tierramedia.Producto;
 import tierramedia.Promo;
+import tierramedia.PromoAbsoluta;
+import tierramedia.PromoAxB;
 import tierramedia.PromoPorcentual;
 import tierramedia.TipoAtraccion;
 import tierramedia.Usuario;
@@ -95,45 +97,47 @@ public class test {
 		assertEquals(TipoAtraccion.PAISAJE,promo.getTipo());
 		
 	}
-	//si el user ya compro una atraccion o promo
+	
 	@Test
-	public void usuarioContieneAtraccion() {
-		Usuario usuario = new Usuario("Julio",TipoAtraccion.PAISAJE,50,30d);
+	public void usuarioPuedeComprar() {
+		Usuario usuario = new Usuario("Pepito",TipoAtraccion.AVENTURA,100,100d);
 		List<Atraccion> atracciones = new LinkedList<Atraccion>();
 		
-		Atraccion atraccion1 = new Atraccion("Playa", 10, 6d, 11, TipoAtraccion.PAISAJE);
-		Atraccion atraccion4 = new Atraccion("Cielo", 4, 5d, 8, TipoAtraccion.PAISAJE);
-		Atraccion atraccion2 = new Atraccion("Arenas", 9, 7d, 9, TipoAtraccion.AVENTURA);
-		Atraccion atraccion3 = new Atraccion("BLABLA", 4, 5d, 6, TipoAtraccion.AVENTURA);
+		Atraccion atraccion1 = new Atraccion("Playa", 10, 3d, 11, TipoAtraccion.AVENTURA);
+		Atraccion atraccion2 = new Atraccion("Cielo", 4, 2.5d, 8, TipoAtraccion.AVENTURA);
+		Atraccion atraccion3 = new Atraccion("Arenas", 2, 1d, 9, TipoAtraccion.AVENTURA);
+		Atraccion atraccion4 = new Atraccion("BLABLA", 8, 4d, 6, TipoAtraccion.AVENTURA);
 		
 		atracciones.add(atraccion1);
 		atracciones.add(atraccion2);
 		atracciones.add(atraccion3);
 		atracciones.add(atraccion4);
 		
-		String[] nombres = {"Playa","Cielo"};
-		PromoPorcentual promo = new PromoPorcentual(TipoAtraccion.PAISAJE, "Porcentual", nombres,20);	
-		promo.establecerHsPromo(promo, atracciones);
-		promo.establecerPrecioPromo(promo, atracciones);
 		
-		assertFalse(promo.contieneAtraccion(usuario.getCompras()));
+		PromoAbsoluta p1 = new PromoAbsoluta(TipoAtraccion.AVENTURA,"Absoluta",new String[] {"Playa","Cielo"});
+		p1.establecerHsPromo(p1, atracciones);
+		p1.establecerPrecioPromo(p1, atracciones);
+		PromoPorcentual p2 = new PromoPorcentual(TipoAtraccion.AVENTURA, "Porcentual", new String[] {"Playa","Arenas"},30);
+		p2.establecerHsPromo(p2, atracciones);
+		p2.establecerPrecioPromo(p2, atracciones);
+		PromoAxB p3 = new PromoAxB(TipoAtraccion.AVENTURA,"AxB",new String[] {"Playa","Arenas","Cielo"});
+		p3.establecerHsPromo(p3, atracciones);
+		p3.establecerPrecioPromo(p3, atracciones);
+		PromoAbsoluta p4 = new PromoAbsoluta(TipoAtraccion.AVENTURA,"Absoluta",new String[] {"Cielo","BLABLA"});
+		p4.establecerHsPromo(p4, atracciones);
+		p4.establecerPrecioPromo(p4, atracciones);
 		
-		usuario.comprar(atracciones,promo);
+		/*usuario.comprar(atraccion1);
+		assertFalse(usuario.puedeComprar(p1)); */
 		
-		assertTrue(promo.contieneAtraccion(usuario.getCompras()));
+		/*usuario.comprar(atracciones,p1);
+		assertFalse(usuario.puedeComprar(atraccion2));*/
 		
-		//el user ya compro estas 2 atracciones en la promo
-		assertTrue(atraccion1.contieneAtraccion(usuario.getCompras()));
-		assertTrue(atraccion4.contieneAtraccion(usuario.getCompras()));
-		//pero estas 2 no las compro aun
-		assertFalse(atraccion2.contieneAtraccion(usuario.getCompras()));
-		assertFalse(atraccion3.contieneAtraccion(usuario.getCompras()));
-		
-		usuario.comprar(atraccion2);
-		
-		assertTrue(atraccion2.contieneAtraccion(usuario.getCompras()));
-		//da true xq el user no compro la atraccion3
-		assertFalse(atraccion3.contieneAtraccion(usuario.getCompras()));
+		/*usuario.comprar(atracciones,p1);
+		assertFalse(usuario.puedeComprar(p2));*/
+		     
+		usuario.comprar(atracciones,p3);
+		assertFalse(usuario.puedeComprar(p4));
 	}
 	
 	@Test
