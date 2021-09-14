@@ -113,16 +113,18 @@ public class test {
 		atracciones.add(atraccion3);
 		atracciones.add(atraccion4);
 		
-		
 		PromoAbsoluta p1 = new PromoAbsoluta(TipoAtraccion.AVENTURA,"Absoluta",new String[] {"Playa","Cielo"});
 		p1.establecerHsPromo(p1, atracciones);
 		p1.establecerPrecioPromo(p1, atracciones);
+		
 		PromoPorcentual p2 = new PromoPorcentual(TipoAtraccion.AVENTURA, "Porcentual", new String[] {"Playa","Arenas"},30);
 		p2.establecerHsPromo(p2, atracciones);
 		p2.establecerPrecioPromo(p2, atracciones);
+		
 		PromoAxB p3 = new PromoAxB(TipoAtraccion.AVENTURA,"AxB",new String[] {"Playa","Arenas","Cielo"});
 		p3.establecerHsPromo(p3, atracciones);
 		p3.establecerPrecioPromo(p3, atracciones);
+		
 		PromoAbsoluta p4 = new PromoAbsoluta(TipoAtraccion.AVENTURA,"Absoluta",new String[] {"Cielo","BLABLA"});
 		p4.establecerHsPromo(p4, atracciones);
 		p4.establecerPrecioPromo(p4, atracciones);
