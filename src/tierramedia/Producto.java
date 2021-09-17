@@ -42,7 +42,7 @@ public abstract class Producto{
 	public Boolean contieneAtraccion(List<Producto> compras) {
 		if (this instanceof Promo) {
 			for (Producto compra : compras) {
-				if (compra instanceof Promo) {
+				if (compra instanceof Promo) { // Promo - Promo
 					for (String nombreP : ((Promo) this).getNombres_atracciones()) {
 						for (String nombreC : ((Promo) compra).getNombres_atracciones()) {
 							if ( nombreP.equals(nombreC) ) {
@@ -51,7 +51,7 @@ public abstract class Producto{
 						}
 						
 					}					
-				} else {
+				} else { // Promo - Atraccion
 					for (String nombreP : ((Promo) this).getNombres_atracciones()) {
 						if ( nombreP.equals(((Atraccion) compra).getNombre()) ) {
 							return true;	
@@ -61,13 +61,13 @@ public abstract class Producto{
 			}
 		} else {
 			for (Producto compra : compras) {
-				if (compra instanceof Promo) {
+				if (compra instanceof Promo) { // Atraccion - Promo
 					for (String nombreC : ((Promo) compra).getNombres_atracciones()) {
 						if ( nombreC.equals( ((Atraccion) this).getNombre() ) ) {
 							return true;	
 						}
 					}					
-				} else {
+				} else { // Atraccion - Atraccion
 					if ( ((Atraccion) compra).getNombre().equals( ((Atraccion) this).getNombre() ) ) {
 							return true;	
 						}
